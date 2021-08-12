@@ -1,3 +1,57 @@
 .wrapper
-    width: 100px
-    height: 100px
+
+    --img-height: 130px
+    --img-width: 130px
+    --item-height: 260px
+
+    width: 100vw
+    height: 100vh
+    overflow: scroll
+    background-color: #393C49
+    color: white
+
+
+    .products-block
+        width: 100%
+        display: flex
+        grid-gap: 10px
+        flex-wrap: wrap
+        justify-content: space-evenly
+
+        .item
+            display: flex
+            flex-wrap: wrap
+            justify-content: center
+            align-content: flex-start
+            margin-top: 50px
+            background: #1F1D2B
+            border-radius: 15px
+            width: 190px
+            cursor: pointer
+            height: var(--item-height)
+
+        .description
+            height: calc( var(--item-height) - (var(--img-height) / 2) - 10px )
+
+            // background-color: lightcoral
+            transform: translateY(calc( var(--img-height) / 2 * -1 ))
+            display: flex
+            flex-flow: column nowrap
+            justify-content: space-evenly
+
+        img
+            width: var(--img-width)
+            height: var(--img-height)
+            transform: translateY(calc( var(--img-height) / 2 * -1))
+
+        p
+            text-align: center
+            font-family: 'Aclonica', sans-serif
+            font-size: 20px
+            margin: 0
+
+            &:nth-child(2)
+                font-size: 0.8em
+
+            &:last-child
+                color: gray

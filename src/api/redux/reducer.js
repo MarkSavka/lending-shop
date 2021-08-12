@@ -1,8 +1,11 @@
 const INCREMENT = "increment"
 const DECREMENT = "decrement"
+const ADD_PRODUCTS = "addProducts"
 
 const initialState = {
-    count: 0
+    count: 0,
+    products: [],
+    alreadyGetData: true
 }
 
 export default function mainReducer( state = initialState, action ) {
@@ -17,9 +20,15 @@ export default function mainReducer( state = initialState, action ) {
                 ...state,
                 count: state.count - 1
             }
+        case ADD_PRODUCTS :
+            return {
+                ...state,
+                products: state.products.concat(action.payload)
+            }
         default : return state
     }
 }
 
 export const increment = () => ({type: INCREMENT})
 export const decrement = () => ({type: DECREMENT})
+export const addProducts = (payload) => ({type: ADD_PRODUCTS, payload})
