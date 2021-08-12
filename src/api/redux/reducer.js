@@ -3,7 +3,8 @@ const MODAL = "modal"
 
 const initialState = {
     products: [],
-    modal: false
+    modal: false,
+    openProductId: 0
 }
 
 export default function mainReducer( state = initialState, action ) {
