@@ -1,24 +1,17 @@
-const INCREMENT = "increment"
-const DECREMENT = "decrement"
 const ADD_PRODUCTS = "addProducts"
+const MODAL = "modal"
 
 const initialState = {
-    count: 0,
     products: [],
-    alreadyGetData: true
+    modal: false
 }
 
 export default function mainReducer( state = initialState, action ) {
     switch (action.type) {
-        case INCREMENT : 
+        case MODAL :
             return {
                 ...state,
-                count: state.count + 1
-            }
-        case DECREMENT :
-            return {
-                ...state,
-                count: state.count - 1
+                modal: action.payload
             }
         case ADD_PRODUCTS :
             return {
@@ -29,6 +22,5 @@ export default function mainReducer( state = initialState, action ) {
     }
 }
 
-export const increment = () => ({type: INCREMENT})
-export const decrement = () => ({type: DECREMENT})
 export const addProducts = (payload) => ({type: ADD_PRODUCTS, payload})
+export const modal = (payload) => ({type: MODAL, payload})

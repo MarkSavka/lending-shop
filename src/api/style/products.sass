@@ -4,8 +4,9 @@
     --img-width: 130px
     --item-height: 260px
 
-    width: 100vw
+    width: calc(100vw - 20px * 2 )// full width - padding * 2
     height: 100vh
+    padding: 20px
     overflow: scroll
     background-color: #393C49
     color: white
@@ -55,3 +56,11 @@
 
             &:last-child
                 color: gray
+
+    .modal-window
+        position: fixed
+        width: 100vw
+        height: 100vh
+        left: 0
+        top: 0
+        background-color: #00000099
