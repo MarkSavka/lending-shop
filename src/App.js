@@ -7,19 +7,19 @@ import getAllProducts from './api/service/getAllProducts';
 
 function App() {
 
-  const dispatch = useDispatch()
+   const dispatch = useDispatch()
 
-  useEffect( () => {
-    async function getProduct(){
-        const productsArray = await getAllProducts();
-        dispatch( addProducts( productsArray ) )
-    }
-    getProduct()
-})
+   useEffect(() => {
+      async function getProduct() {
+         const productsArray = await getAllProducts();
+         dispatch(addProducts(productsArray))
+      }
+      getProduct()
+   })
 
-  return (
-    <Products />
-  )
+   return (
+      <Products />
+   )
 }
 
 export default App;

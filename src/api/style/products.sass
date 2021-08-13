@@ -1,3 +1,5 @@
+@import './main'
+
 .wrapper
 
     --img-height: 130px
@@ -21,7 +23,7 @@
 
         button
             margin: 0 20px
-            border: 2px lightgreen solid
+            border-color: lightgreen
             color: lightgreen
             border-radius: 20px
             background-color: initial
@@ -49,8 +51,6 @@
 
         .description
             height: calc( var(--item-height) - (var(--img-height) / 2) - 10px )
-
-            // background-color: lightcoral
             transform: translateY(calc( var(--img-height) / 2 * -1 ))
             display: flex
             flex-flow: column nowrap
@@ -89,13 +89,43 @@
             width: 80%
             display: flex
             flex-direction: column
-            gap: 15px
+            justify-content: space-between
             height: 80%
             background-color: #393C49
             border-radius: 50px
             padding: 30px
 
-            input
-                padding: 5px
-                border: none
-                border-radius: 5px
+            .form
+                display: flex
+                flex-direction: column
+
+                input
+                    padding: 5px
+                    border: none
+                    border-radius: 5px
+                    margin-top: 15px
+                    margin-bottom: 2px
+
+                .invalid-input
+                    font-size: 0.8em
+                    text-align: left
+                    margin-left: 5px
+                    color: red
+                    font-weight: 600
+                
+
+            .form-controllers
+                display: flex
+                justify-content: flex-end
+
+                .add
+                    border-color: lightgreen
+                    color: lightgreen
+                    font-size: 1.2em
+                    font-weight: 600
+
+                .close
+                    border-color: #FB3232
+                    color: #FB3232
+                    font-size: 1.2em
+                    font-weight: 600
