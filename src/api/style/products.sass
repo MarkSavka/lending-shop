@@ -21,6 +21,12 @@
         justify-content: flex-end
         align-items: center
 
+        .sort
+            &::after
+                // content: "U+2193"
+                font-size: 1.5em
+                content: " \2193"
+
         button
             margin: 0 20px
             border-color: lightgreen
@@ -48,6 +54,12 @@
             width: 190px
             cursor: pointer
             height: var(--item-height)
+            text-decoration: none
+            color: white
+            
+            &:visited
+                text-decoration: none
+                color: white
 
         .description
             height: calc( var(--item-height) - (var(--img-height) / 2) - 10px )

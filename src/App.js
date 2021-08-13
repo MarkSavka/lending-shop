@@ -5,6 +5,14 @@ import { useDispatch } from 'react-redux';
 import { addProducts } from './api/redux/reducer';
 import getAllProducts from './api/service/getAllProducts';
 
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route,
+} from "react-router-dom";
+import Product from './api/pages/Product';
+
+
 function App() {
 
    const dispatch = useDispatch()
@@ -18,7 +26,16 @@ function App() {
    })
 
    return (
-      <Products />
+      <Router>
+         <Switch>
+            <Route exact path="/" >
+               <Products />
+            </Route>
+            <Route path="/:id">
+               <Product />
+            </Route>
+         </Switch>
+      </Router>
    )
 }
 

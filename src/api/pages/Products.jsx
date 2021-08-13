@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { addProducts, modal } from '../redux/reducer'
 
 const Products = () => {
@@ -80,14 +81,14 @@ const Products = () => {
         <div className="wrapper">
             <nav className="navbar">
                 <button onClick={ () => changeModal(!modalState) } >New product</button>
-                <p>Sort</p>
+                <p className="sort" >Sort</p>
             </nav>
 
             <div className="products-block">
                 
                 { products && products.map(product => {
                     return(
-                        <div className="item" key={product.id}>
+                        <Link to={`/${product.id}`} className="item" key={product.id}>
                             <img 
                                 height="100px" 
                                 width="100px"  
@@ -99,7 +100,7 @@ const Products = () => {
                                 <p>{product.comment}</p>
                                 <p>{product.count}</p>
                             </div>
-                        </div>
+                        </Link>
                     )
                 })}
 
