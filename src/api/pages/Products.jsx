@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { addProducts, modal } from '../redux/reducer'
+import { modal } from '../redux/reducer'
 
 const Products = () => {
 
@@ -71,10 +71,6 @@ const Products = () => {
         if(Object.keys(error).length){
             setErrorValidation(error)
         }
-    }
-
-    const openSingleProduct = () => {
-
     }
 
     return (

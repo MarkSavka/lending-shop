@@ -1,143 +1,127 @@
-@import './main'
-
-.wrapper
-
-    --img-height: 130px
-    --img-width: 130px
-    --item-height: 260px
-
-    width: calc(100vw - 20px * 2 )// full width - padding * 2
-    min-width: 700px
-    height: 100vh
+.navbar
+    display: flex
+    width: calc(100% - 20px * 2)
     padding: 20px
-    overflow: scroll
-    background-color: #393C49
-    color: white
+    justify-content: flex-end
+    align-items: center
 
-    .navbar
+    .sort
+        &::after
+            // content: "U+2193"
+            font-size: 1.5em
+            content: " \2193"
+
+    button
+        margin: 0 20px
+        border-color: lightgreen
+        color: lightgreen
+        border-radius: 20px
+        background-color: initial
+        padding: 10px
+        cursor: pointer
+
+.products-block
+    width: 100%
+    display: flex
+    grid-gap: 10px
+    flex-wrap: wrap
+    justify-content: space-evenly
+
+    .item
         display: flex
-        width: calc(100% - 20px * 2)
-        padding: 20px
-        justify-content: flex-end
-        align-items: center
-
-        .sort
-            &::after
-                // content: "U+2193"
-                font-size: 1.5em
-                content: " \2193"
-
-        button
-            margin: 0 20px
-            border-color: lightgreen
-            color: lightgreen
-            border-radius: 20px
-            background-color: initial
-            padding: 10px
-            cursor: pointer
-
-    .products-block
-        width: 100%
-        display: flex
-        grid-gap: 10px
         flex-wrap: wrap
-        justify-content: space-evenly
-
-        .item
-            display: flex
-            flex-wrap: wrap
-            justify-content: center
-            align-content: flex-start
-            margin-top: 50px
-            background: #1F1D2B
-            border-radius: 15px
-            width: 190px
-            cursor: pointer
-            height: var(--item-height)
+        justify-content: center
+        align-content: flex-start
+        margin-top: 50px
+        background: #1F1D2B
+        border-radius: 15px
+        width: 190px
+        cursor: pointer
+        height: var(--item-height)
+        text-decoration: none
+        color: white
+        
+        &:visited
             text-decoration: none
             color: white
-            
-            &:visited
-                text-decoration: none
-                color: white
 
-        .description
-            height: calc( var(--item-height) - (var(--img-height) / 2) - 10px )
-            transform: translateY(calc( var(--img-height) / 2 * -1 ))
-            display: flex
-            flex-flow: column nowrap
-            justify-content: space-evenly
-
-        img
-            width: var(--img-width)
-            height: var(--img-height)
-            transform: translateY(calc( var(--img-height) / 2 * -1))
-
-        p
-            text-align: center
-            font-family: 'Aclonica', sans-serif
-            font-size: 20px
-            margin: 0
-
-            &:nth-child(2)
-                font-size: 0.8em
-
-            &:last-child
-                color: gray
-
-    .modal-window
-        position: fixed
-        width: 100vw
-        height: 100vh
-        left: 0
-        top: 0
-        background-color: #00000099
-
+    .description
+        height: calc( var(--item-height) - (var(--img-height) / 2) - 10px )
+        transform: translateY(calc( var(--img-height) / 2 * -1 ))
         display: flex
-        justify-content: center
-        align-items: center
+        flex-flow: column nowrap
+        justify-content: space-evenly
 
-        .modal
-            width: 80%
+    img
+        width: var(--img-width)
+        height: var(--img-height)
+        transform: translateY(calc( var(--img-height) / 2 * -1))
+
+    p
+        text-align: center
+        font-family: 'Aclonica', sans-serif
+        font-size: 20px
+        margin: 0
+
+        &:nth-child(2)
+            font-size: 0.8em
+
+        &:last-child
+            color: gray
+
+.modal-window
+    position: fixed
+    width: 100vw
+    height: 100vh
+    left: 0
+    top: 0
+    background-color: #00000099
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    .modal
+        width: 80%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        height: 80%
+        background-color: #393C49
+        border-radius: 50px
+        padding: 30px
+
+        .form
             display: flex
             flex-direction: column
-            justify-content: space-between
-            height: 80%
-            background-color: #393C49
-            border-radius: 50px
-            padding: 30px
 
-            .form
-                display: flex
-                flex-direction: column
+            input
+                padding: 5px
+                border: none
+                border-radius: 5px
+                margin-top: 15px
+                margin-bottom: 2px
 
-                input
-                    padding: 5px
-                    border: none
-                    border-radius: 5px
-                    margin-top: 15px
-                    margin-bottom: 2px
+            .invalid-input
+                font-size: 0.8em
+                text-align: left
+                margin-left: 5px
+                color: red
+                font-weight: 600
+            
 
-                .invalid-input
-                    font-size: 0.8em
-                    text-align: left
-                    margin-left: 5px
-                    color: red
-                    font-weight: 600
-                
+        .form-controllers
+            display: flex
+            justify-content: flex-end
 
-            .form-controllers
-                display: flex
-                justify-content: flex-end
+            .add
+                border-color: lightgreen
+                color: lightgreen
+                font-size: 1.2em
+                font-weight: 600
 
-                .add
-                    border-color: lightgreen
-                    color: lightgreen
-                    font-size: 1.2em
-                    font-weight: 600
-
-                .close
-                    border-color: #FB3232
-                    color: #FB3232
-                    font-size: 1.2em
-                    font-weight: 600
+            .close
+                border-color: #FB3232
+                color: #FB3232
+                font-size: 1.2em
+                font-weight: 600
