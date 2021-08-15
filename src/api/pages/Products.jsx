@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { modal } from '../redux/reducer'
+import postNewProduct from '../service/postNewProduct'
 
 const Products = () => {
 
@@ -40,7 +41,7 @@ const Products = () => {
         dispatch( modal( state ) )
     }
 
-    const inputValdation = () => {
+    const inputValdation = async () => {
         const state = inputState;
         const error = {};
 
@@ -48,7 +49,7 @@ const Products = () => {
             error.img = true
         } else error.img = false
         
-        if(state.name.length < 4 || state.img.length > 20){
+        if(state.name.length < 4 || state.name.length > 20){
             error.name = true
         } else error.name = false
 
@@ -68,8 +69,16 @@ const Products = () => {
             error.weight = true
         } else error.weight = false
 
-        if(Object.keys(error).length){
-            setErrorValidation(error)
+        setErrorValidation(error)
+
+        if( !error.img
+            && !error.name
+            && !error.count
+            && !error.height
+            && !error.width
+            && !error.weight
+        ){
+            await postNewProduct(inputState)
         }
     }
 
@@ -129,7 +138,7 @@ const Products = () => {
                             </div>
 
                             <div className="form-controllers" >
-                                <button className="console" onClick={ () => console.log(inputState)} >Console</button>
+                                <button className="console" onClick={ () => console.log("errorValidation", errorValidation, "\n\n\n", "inputState: ", inputState)} >Console</button>
                                 <button className="close" onClick={ () => changeModal(!modalState)} >Close</button>
                                 <button className="add"   onClick={ () => inputValdation()} >Add</  button>
                             </div>
